@@ -6,5 +6,9 @@
   height: 100vh;
   background: var(--app-background-base);
   background: linear-gradient(to right, var(--app-background-base), var(--app-background-gradient));
-
+}
+@media screen and (min-height: 768px) {
+  .App {
+    background: #eee;
+  }
 }
