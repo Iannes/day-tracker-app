@@ -4,3 +4,5 @@ export type DateRangeObject = {
   endDate: Date;
   duration: number;
 };
+
+export type FormEvent = React.FormEvent<HTMLFormElement>;

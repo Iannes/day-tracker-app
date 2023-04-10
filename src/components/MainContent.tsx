@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { useNavigate, Navigate } from "react-router-dom";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 
@@ -8,9 +8,23 @@ import { useSetTotalDays } from "../hooks/useSetTotalDays";
 import DateInput from "./DateInput";
 import Header from "./Header";
 import Pie from "./Pie";
+import { useAppAuth } from "../contexts/AuthProvider";
+import { AppRoutes } from "./AppRouter";
+import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { firebaseConfig } from "../firebaseConfig";
 
 const MainContent = () => {
   const [dates, setDates] = useState<any>({ startDate: "", endDate: "" });
+  const { user } = useAppAuth();
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      // Initialize Firebase Authentication and get a reference to the service
+      const auth = getAuth(app);
+      // Initialize Analytics
+      const analytics = getAnalytics(app);
 
   const [state, dispatch] = useDates();
 
@@ -29,6 +43,10 @@ const MainContent = () => {
       payload: !state.showDatesModal
     });
   };
+
+  if (!user) { 
+    return <Navigate replace to={AppRoutes.Login} />; 
+  }
   return (
     <>
       <Header />

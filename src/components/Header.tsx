@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Logout } from "@mui/icons-material";
 
 import {
   AppBar,
@@ -9,17 +10,34 @@ import {
   List,
   ListItem,
   ListItemText,
-  Divider
+  Divider,
+  Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
-import "../styles/Header.css"
+import { signOut } from "firebase/auth";
+import { useAppAuth } from "../contexts/AuthProvider";
+import { useNavigate } from "react-router-dom";
+import { AppRoutes } from "./AppRouter";
+
+import "../styles/Header.css";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const { auth } = useAppAuth();
+  const navigate = useNavigate()
 
   const handleMenu = () => {
     setOpen((prev) => !prev);
+  };
+
+  const handleLogout = async () => {
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      navigate(AppRoutes.Login)
+    }).catch((error) => {
+      console.error(error);
+    });
   };
 
   const list = (
@@ -61,6 +79,12 @@ const Header = () => {
           <Typography variant="h6" className="title">
             Day Tracker
           </Typography>
+            <Button
+              onClick={handleLogout}
+              color="secondary"
+            >
+          <Logout />
+            </Button>
         </Toolbar>
       </AppBar>
       <Drawer anchor="left" open={open} onClose={handleMenu}>
