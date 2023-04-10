@@ -1,7 +1,10 @@
 .App {
-  --app-background: #e5bc36b3;
+  --app-background-base: #e5bc36b3;
+  --app-background-gradient: #e5bc36b3;
   font-family: "Roboto", sans-serif;
   text-align: center;
   height: 100vh;
-  background: var(--app-background);
+  background: var(--app-background-base);
+  background: linear-gradient(to right, var(--app-background-base), var(--app-background-gradient));
+
 }
