@@ -36,7 +36,7 @@ export const SignIn: React.FC = () => {
   };
 
   return (
-    <Container component="main" maxWidth="sm">
+    <Container className="sign-in" component="main" maxWidth="sm">
       <Box
         sx={{
           borderRadius: 2,

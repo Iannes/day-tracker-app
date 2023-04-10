@@ -3,6 +3,14 @@
   text-align: center;
 }
 
+.sign-in {
+  height: 100vh;
+  min-width: 100%;
+  background-image: url("../assets/travel.jpg");
+  position: absolute;
+  width: 100%;
+}
+
 .main-content {
   --app-background-base: #e5bc36b3;
   --app-background-gradient: #e5bc36b3;
