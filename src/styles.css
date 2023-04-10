@@ -1,14 +1,18 @@
 .App {
-  --app-background-base: #e5bc36b3;
-  --app-background-gradient: #e5bc36b3;
   font-family: "Roboto", sans-serif;
   text-align: center;
+}
+
+.main-content {
+  --app-background-base: #e5bc36b3;
+  --app-background-gradient: #e5bc36b3;
   height: 100vh;
   background: var(--app-background-base);
   background: linear-gradient(to right, var(--app-background-base), var(--app-background-gradient));
+
 }
 @media screen and (min-height: 768px) {
-  .App {
+  .main-content {
     background: #eee;
   }
 }

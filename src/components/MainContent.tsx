@@ -48,7 +48,7 @@ const MainContent = () => {
     return <Navigate replace to={AppRoutes.Login} />; 
   }
   return (
-    <>
+    <div className="main-content">
       <Header />
       {state.showDatesModal ? (
         <DateInput onSelectDateRange={handleChange} />
@@ -71,7 +71,7 @@ const MainContent = () => {
           <AddIcon />
         </Fab>
       )}
-    </>
+    </div>
   );
 };
 
