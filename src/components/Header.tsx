@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { makeStyles } from "@mui/styles";
+
 import {
   AppBar,
   Toolbar,
@@ -13,23 +13,9 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
-const useStyles = makeStyles((theme) => ({
-  rootAppBar: {
-    flexGrow: 1
-  },
-  menuButton: {
-    marginRight: 50
-  },
-  title: {
-    flexGrow: 1
-  },
-  list: {
-    width: 250
-  }
-}));
+import "../styles/Header.css"
 
 const Header = () => {
-  const classes = useStyles();
   const [open, setOpen] = useState(false);
 
   const handleMenu = () => {
@@ -38,21 +24,21 @@ const Header = () => {
 
   const list = (
     <div
-      className={classes.list}
+      className="list"
       role="presentation"
       onClick={handleMenu}
       onKeyDown={handleMenu}
     >
       <List>
-        <ListItem button>
+        <ListItem>
           <ListItemText primary="Home" />
         </ListItem>
         <Divider />
-        <ListItem button>
+        <ListItem>
           <ListItemText primary="About" />
         </ListItem>
         <Divider />
-        <ListItem button>
+        <ListItem>
           <ListItemText primary="Contact" />
         </ListItem>
       </List>
@@ -60,19 +46,19 @@ const Header = () => {
   );
 
   return (
-    <div className={classes.rootAppBar}>
+    <div className="rootAppBar">
       <AppBar position="static">
         <Toolbar>
           <IconButton
             edge="start"
-            className={classes.menuButton}
+            className="menuButton"
             color="inherit"
             aria-label="menu"
             onClick={handleMenu}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6" className="title">
             Day Tracker
           </Typography>
         </Toolbar>

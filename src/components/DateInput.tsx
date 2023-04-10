@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import { Container } from "@mui/material";
-import { makeStyles } from "@material-ui/core";
 import DatePicker from "react-datepicker";
 import { useDates, ActionType } from "../contexts/DatesProvider";
 import { createNewDateRange } from "../utils/createNewDateRange";
@@ -12,31 +11,8 @@ import { safeJsonParse } from "../utils/safeJsonParse";
 import { useSetTotalDays } from "../hooks/useSetTotalDays";
 import { DateRangeObject } from "../types";
 import "react-datepicker/dist/react-datepicker.css";
+import "../styles/DateInput.css"
 
-const useStyles = makeStyles({
-  root: {
-    font: "inherit",
-    letterSpacing: "inherit",
-    color: "currentColor",
-    padding: "8.5px 14px",
-    width: "calc(100% - 28px)",
-    border: 0,
-    boxShadow: "0px 0px 0px .5px #cccccc",
-    borderRadius: 9,
-    boxSizing: "content-box",
-    background: "none",
-    height: "1.4375em",
-    margin: "auto",
-    WebkitTapHighlightColor: "transparent",
-    display: "block",
-    minWidth: 0,
-    WebkitAnimationName: "mui-auto-fill-cancel",
-    animationName: "mui-auto-fill-cancel",
-    WebkitAnimationDuration: "10ms",
-    animationDuration: "10ms",
-    marginBottom: 20
-  }
-});
 type Props = {
   onSelectDateRange: (startDate: Date, endDate: Date) => void;
 };
@@ -46,7 +22,6 @@ const DateRangeInput: React.FC<Props> = ({ onSelectDateRange }) => {
   const [endDate, setEndDate] = useState<Date | null>(null);
   const currentYear = new Date().getFullYear();
   const [state, dispatch] = useDates();
-  const classes = useStyles();
 
   useSetTotalDays();
 
@@ -108,7 +83,7 @@ const DateRangeInput: React.FC<Props> = ({ onSelectDateRange }) => {
     <Container maxWidth="sm">
       <h3>Select a date range:</h3>
       <DatePicker
-        className={classes.root}
+        className="root"
         selected={startDate}
         onChange={handleStartDateChange}
         selectsStart
@@ -118,7 +93,7 @@ const DateRangeInput: React.FC<Props> = ({ onSelectDateRange }) => {
         placeholderText="Start Date"
       />
       <DatePicker
-        className={classes.root}
+        className="root"
         selected={endDate}
         onChange={handleEndDateChange}
         selectsEnd

@@ -1,0 +1,15 @@
+.rootAppBar {
+    flex-grow: 1;
+}
+
+.menuButton {
+    margin-right: 50px;
+}
+
+.title {
+    flex-grow: 1;
+}
+
+.list {
+    width: 250px;
+}

@@ -1,0 +1,20 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chartContainer {
+    position: relative;
+}
+
+.chartCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.daysLeft {
+    color: #C2185B;
+}
