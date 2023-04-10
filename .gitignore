@@ -1,1 +1,21 @@
-node_modules
+# Ignore node_modules directory
+node_modules/
+
+# Ignore .env files
+.env
+
+# Ignore build and compiled files
+/build/
+/dist/
+*.min.js
+
+# Ignore log files
+*.log
+
+# Ignore macOS specific files
+.DS_Store
+
+# Ignore editor-specific files
+.vscode/
+.idea/
+*.sublime-workspace
