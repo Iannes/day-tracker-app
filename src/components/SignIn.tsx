@@ -90,12 +90,12 @@ export const SignIn: React.FC = () => {
           </div>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Link href="#" variant="body2" sx={{ color: '#eee' }}>
                 Forgot password?
               </Link>
             </Grid>
             <Grid item sx={{ marginLeft: 5 }}>
-              <Link href={AppRoutes.SignUp} variant="body2">
+              <Link href={AppRoutes.SignUp} variant="body2" sx={{ color: '#eee' }}>
                 Don't have an account? Sign Up
               </Link>
             </Grid>

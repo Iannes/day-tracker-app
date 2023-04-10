@@ -9,6 +9,7 @@
   background-image: url("../assets/travel.jpg");
   position: absolute;
   width: 100%;
+  background-position: center;
 }
 
 .main-content {
