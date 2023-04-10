@@ -1,4 +1,7 @@
 .App {
+  --app-background: #e5bc36b3;
   font-family: "Roboto", sans-serif;
   text-align: center;
+  height: 100vh;
+  background: var(--app-background);
 }

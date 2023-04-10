@@ -96,7 +96,7 @@ export const SignIn: React.FC = () => {
             </Grid>
             <Grid item sx={{ marginLeft: 5 }}>
               <Link href={AppRoutes.SignUp} variant="body2">
-                {"Don't have an account? Sign Up"}
+                Don't have an account? Sign Up
               </Link>
             </Grid>
           </Grid>
