@@ -20,7 +20,7 @@ const PieChart: React.FC<PieChartProps> = ({
   const centerLabel = `${numberOfDaysAllowed - numberOfDaysUsed} days left`;
 
   return (
-    <div className="root">
+    <div className="pie-root">
       <div className="chartContainer">
         <VictoryPie
           data={data}

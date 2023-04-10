@@ -83,7 +83,7 @@ const DateRangeInput: React.FC<Props> = ({ onSelectDateRange }) => {
     <Container maxWidth="sm">
       <h3>Select a date range:</h3>
       <DatePicker
-        className="root"
+        className="date-imput-root"
         selected={startDate}
         onChange={handleStartDateChange}
         selectsStart
@@ -93,7 +93,7 @@ const DateRangeInput: React.FC<Props> = ({ onSelectDateRange }) => {
         placeholderText="Start Date"
       />
       <DatePicker
-        className="root"
+        className="date-imput-root"
         selected={endDate}
         onChange={handleEndDateChange}
         selectsEnd
