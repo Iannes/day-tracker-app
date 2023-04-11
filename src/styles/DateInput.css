@@ -1,4 +1,4 @@
-.date-imput-root {
+.date-input-root {
     font: inherit;
     letter-spacing: inherit;
     color: currentColor;
@@ -16,4 +16,8 @@
     animation-name: mui-auto-fill-cancel;
     animation-duration: 10ms;
     margin-bottom: 20px;
+}
+
+.date-input-root:focus {
+    background-color: white;
 }
