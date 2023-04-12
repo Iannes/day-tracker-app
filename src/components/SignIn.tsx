@@ -21,18 +21,20 @@ export const SignIn: React.FC = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    setPersistence(auth, browserSessionPersistence)
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        navigate(AppRoutes.App);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        setErrorMessage(errorMessage);
-      });
+    setPersistence(auth, browserSessionPersistence).then(() => {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user)
+          navigate(AppRoutes.App);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorMessage);
+        });
+    })
   };
 
   return (

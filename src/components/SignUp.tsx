@@ -25,7 +25,8 @@ export const SignUp: React.FC = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed up
-        const user = userCredential.user;
+        const user = userCredential.user.getIdToken(true)
+        console.log(user)
         navigate(AppRoutes.App);
       })
       .catch((error) => {

@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth, setPersistence, onAuthStateChanged, browserSessionPersistence } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import { createContext, useContext, useEffect, useState } from "react";
 import { firebaseConfig } from "../firebaseConfig";
@@ -11,8 +11,9 @@ export const auth = getAuth(app);
 
 
 type State = {
-    user: any;
+    user: Record<any, any> | null;
     auth: any;
+    pending: boolean;
 };
 
 const AuthContext = createContext<State | undefined>(undefined);
@@ -23,21 +24,33 @@ export const AuthProvider = ({
   children: React.ReactNode | React.ReactNode[];
   auth: any;
 }) => {
-  const [user, setUser] = useState<any>(null);
-  const state = { user, auth };
+  const [currentUser, setCurrentUser] = useState<any>(null);
+  const [pending, setPending] = useState<any>(true);
+  const state = { user: currentUser, auth, pending };
+
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
         if (user) {
-            setUser(user)
-            setPersistence(auth, browserSessionPersistence)
-          } else {
-            // No user is signed in.
-          }
+            setPending(false)
+            setCurrentUser(user)
+        } else {
+            setPending(false)
+            setCurrentUser(null)
+        }
     });
 
     // cleanup function
     return () => unsubscribe();
   }, []);
+
+  useEffect(() => {
+    if(!currentUser) {
+        console.log('nope')
+        return;
+    } else {
+        localStorage.setItem('accessToken', JSON.stringify(currentUser.accessToken))
+    }
+  }, [currentUser])
   return <AuthContext.Provider value={state}>{children}</AuthContext.Provider>;
 };
 

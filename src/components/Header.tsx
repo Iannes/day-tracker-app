@@ -34,6 +34,7 @@ const Header = () => {
   const handleLogout = async () => {
     signOut(auth).then(() => {
       // Sign-out successful.
+      localStorage.removeItem('accessToken');
       navigate(AppRoutes.Login)
     }).catch((error) => {
       console.error(error);

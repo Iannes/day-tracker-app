@@ -73,12 +73,6 @@ const DateRangeInput: React.FC<Props> = ({ onSelectDateRange }) => {
     }
   };
 
-  useEffect(() => {
-    if (state.dates.length > 0) {
-      localStorage.setItem("savedDateRanges", JSON.stringify(state.dates));
-    }
-  }, [state.dates]);
-
   return (
     <Container maxWidth="sm">
       <h3>Select a date range:</h3>

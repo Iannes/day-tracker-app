@@ -18,9 +18,9 @@ const AppRouter: React.FC = () => {
   return (
     <Router>
       <Routes>
+        <Route path={AppRoutes.App} element={<MainContent />} />
         <Route path={AppRoutes.SignUp} element={<SignUp />} />
         <Route path={AppRoutes.Login} element={<SignIn />} />
-        <Route path={AppRoutes.App} element={<MainContent />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
