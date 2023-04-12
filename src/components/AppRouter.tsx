@@ -6,7 +6,7 @@ import MainContent from "./MainContent";
 
 export enum AppRoutes {
   Login = '/',
-  SignUp = '/sign-up',
+  SignUp = '/account',
   App = '/app',
 }
 
