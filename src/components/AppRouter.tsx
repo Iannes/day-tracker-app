@@ -6,7 +6,7 @@ import MainContent from "./MainContent";
 
 export enum AppRoutes {
   Login = '/',
-  SignUp = '/account',
+  SignUp = '/sign-up',
   App = '/app',
 }
 
@@ -18,7 +18,7 @@ const AppRouter: React.FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path={AppRoutes.SignUp} element={<SignUp />} />
+        <Route path={AppRoutes.SignUp} element={<SignIn />} />
         <Route path={AppRoutes.Login} element={<SignIn />} />
         <Route path={AppRoutes.App} element={<MainContent />} />
         <Route path="*" element={<NotFound />} />
